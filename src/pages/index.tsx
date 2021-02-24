@@ -61,40 +61,43 @@ const IndexPage = (props: LayoutProps) =>
     <Segment vertical className="stripe alternate feature">
       <Grid columns="3" textAlign="center" divided relaxed stackable className="container">
         <Grid.Row>
+          <Header as="h3">Team Members</Header>
+        </Grid.Row>
+        <Grid.Row>
           <Grid.Column>
             <Header icon>
-              <Icon name="wizard"></Icon>
-              A kind of magic!
+              <Icon name="smile outline"></Icon>
+              Benjamin Wadsworth
             </Header>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Voluptas eaque at quae cupiditate aspernatur quibusdam!
-                  Distinctio quod non, harum dolorum earum molestias,
-                  beatae expedita aliquam dolorem asperiores nemo amet quaerat.
+              THIS IS WHERE BEN SHOULD DESCRIBE HIMSELF.
+              Ben is neat, but he doesn't like TypeScript or web development so that's not great.
+              He's working on some stuff with LPS and there's something with a crystal oscillator.
+                </p>
+          </Grid.Column>
+          <Grid.Column>
+            <Header icon>
+              <Icon name="smile outline"></Icon>
+              Dalton Clift
+            </Header>
+            <p>
+              THIS IS WHERE DALTON SHOULD DESCRIBE HIMSELF.
+              Dalton has like a ton of servers and that's pretty crazy. 
+              He's also a business major though so we make fun of him.
+              He's working on building some robo-dudes that yell insults at each other
                 </p>
           </Grid.Column>
           <Grid.Column>
             <Header icon>
               <Icon name="wizard"></Icon>
-              A kind of magic!
+              Sam Hirsch
             </Header>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Voluptas eaque at quae cupiditate aspernatur quibusdam!
-                  Distinctio quod non, harum dolorum earum molestias,
-                  beatae expedita aliquam dolorem asperiores nemo amet quaerat.
-                </p>
-          </Grid.Column>
-          <Grid.Column>
-            <Header icon>
-              <Icon name="wizard"></Icon>
-              A kind of magic!
-            </Header>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit.
-                  Voluptas eaque at quae cupiditate aspernatur quibusdam!
-                  Distinctio quod non, harum dolorum earum molestias,
-                  beatae expedita aliquam dolorem asperiores nemo amet quaerat.
+              Sam does a lot of work with lower-level programming and networking.
+              She assisted in researching hardware-targetted C-level optimizations and 
+              previously worked at a peer-2-peer networking company. She is current working 
+              on simulating our P2P communication method with virtual vehicle models to help 
+              determine ideal program parameters.
                 </p>
           </Grid.Column>
         </Grid.Row>
