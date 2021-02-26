@@ -89,6 +89,11 @@
   }
 }
 
+.profile-picture {
+  border-radius: 50%;
+  box-shadow: 2.5px 2.5px 10px black;
+}
+
 /* Code blocks (Fix a strange bug with prismjs) */
 pre {
   padding: 1em;
