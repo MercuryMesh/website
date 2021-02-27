@@ -18,12 +18,6 @@ module.exports = {
       }
     },
     {
-      resolve: `gatsby-plugin-disqus`,
-      options: {
-        shortname: `mercurymesh`
-      }
-    },
-    {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
         trackingId: "YOUR_GOOGLE_ANALYTICS_TRACKING_ID",
