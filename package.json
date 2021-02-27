@@ -8,9 +8,8 @@
     "start": "gatsby develop",
     "develop": "gatsby develop",
     "build": "gatsby build",
-    "lint": "npm run lint:ts && npm run lint:md && npm run lint:js && npm run lint:css",
+    "lint": "npm run lint:ts && npm run lint:js && npm run lint:css",
     "lint:ts": "tslint \"./src/**/*.ts\" \"./src/**/*.tsx\"",
-    "lint:md": "remark .",
     "lint:js": "xo",
     "lint:css": "stylelint \"src/**/*.css\"",
     "lint:scss": "stylelint src/**/*.scss --syntax scss",
@@ -51,6 +50,7 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "5.2.1",
+    "react-particles-js": "^3.4.1",
     "react-redux": "^7.0.3",
     "react-scripts": "^3.0.1",
     "redux-devtools-extension": "^2.13.8",
@@ -154,7 +154,6 @@
     ],
     "*.md": [
       "node tools/update-post-date.js",
-      "remark -o",
       "git add"
     ],
     "*.css": [

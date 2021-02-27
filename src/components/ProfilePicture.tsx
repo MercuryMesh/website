@@ -1,5 +1,6 @@
 import React from "react";
 import Img from "gatsby-image";
+import { Image } from "semantic-ui-react";
 import { graphql, StaticQuery, useStaticQuery } from "gatsby";
 
 type Props = {
@@ -14,10 +15,10 @@ const ProfilePicture = ({ fileName }: Props) => {
             edges {
               node {
                 fixed(
-                  height: 200
-                  width: 200
+                  height: 375
                   toFormat: PNG
                   cropFocus: ATTENTION
+                  fit: CONTAIN
                 ) {
                   originalName
                   ...GatsbyImageSharpFixed
@@ -35,7 +36,13 @@ const ProfilePicture = ({ fileName }: Props) => {
           return null;
         }
 
-        return <Img className="profile-picture" fixed={edge.node.fixed} />;
+        return (
+          <Image
+            as={Img}
+            className="profile-picture-x"
+            fixed={edge.node.fixed}
+          />
+        );
       }}
     />
   );

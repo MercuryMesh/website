@@ -1,139 +1,320 @@
-import * as React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "gatsby";
 import HeaderMenu from "../components/HeaderMenu/HeaderMenu";
 import { withLayout, LayoutProps, menuItems } from "../components/Layout";
 import {
-  Button,
   Segment,
   Container,
   Grid,
   Header,
+  Card,
+  Statistic,
   Icon,
+  StatisticGroup,
+  Message,
+  Item
 } from "semantic-ui-react";
 import ProfilePicture from "../components/ProfilePicture";
+import jobs from "../../data/sources/jobDistribution";
+import Particles from "react-particles-js";
 
-const IndexPage = (props: LayoutProps) => (
-  <div>
-    {/* Master head */}
-    <Segment vertical inverted textAlign="center" className="masthead">
-      <HeaderMenu
-        Link={Link}
-        pathname={props.location.pathname}
-        items={menuItems}
-        inverted
-      />
-      <Container text>
-        <Header inverted as="h1">
-          MercuryMesh
-        </Header>
-        <Header inverted as="h2">
-          Connecting autonomous vehicles and driving the future
-        </Header>
-      </Container>
-    </Segment>
+const IndexPage = (props: LayoutProps) => {
+  const [isMobile, setIsMobile] = useState(false);
 
-    {/* About this starter */}
-    <Segment vertical className="stripe">
-      <Grid stackable verticalAlign="middle" className="container">
-        <Grid.Row>
-          <Grid.Column width="8">
-            <Header>Lorem ipsum</Header>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
-              laudantium ad, quae, perspiciatis ipsa distinctio.
-            </p>
-            <Header>Dolor sit amet</Header>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
-              laudantium ad, quae, perspiciatis ipsa distinctio.
-            </p>
-          </Grid.Column>
-          <Grid.Column width="6" floated="right">
-            {/* TODO replace with a pretty GIF */}
-            <Header>Lorem ipsum</Header>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
-              laudantium ad, quae, perspiciatis ipsa distinctio.
-            </p>
-            <Header>Dolor sit amet</Header>
-            <p>
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro
-              laudantium ad, quae, perspiciatis ipsa distinctio.
-            </p>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
+  useEffect(() => {
+    if (window.innerWidth > 769) {
+      setIsMobile(false);
+    } else {
+      setIsMobile(true);
+    }
+  }, []);
 
-    {/* Key features */}
-    <Segment vertical className="stripe alternate feature">
-      <Grid
-        columns="3"
-        textAlign="center"
-        divided
-        relaxed="very"
-        stackable
-        className="container"
-      >
-        <Grid.Row>
-          <Header as="h3">Team Members</Header>
-        </Grid.Row>
-        <br />
-        <Grid.Row>
-          <Grid.Column>
-            <Header icon>
-              <ProfilePicture fileName="ben.png" />
-              <br />
-              Benjamin Wadsworth
-            </Header>
+  const bubbles = {
+    particles: {
+      color: {
+        value: "#71a7b2"
+      },
+      line_linked: {
+        color: "#ffffff",
+        distance: 150,
+        enable: true,
+        opacity: 0.4,
+        width: 1
+      },
+      move: {
+        speed: 2.5
+      },
+      number: {
+        density: {
+          enable: true
+        },
+        value: 60
+      },
+      size: {
+        value: 3
+      }
+    },
+    retina_detect: true
+  };
+
+  return (
+    <div>
+      {/* Master head */}
+      <Segment vertical inverted textAlign="center" className="masthead">
+        <HeaderMenu
+          Link={Link}
+          pathname={props.location.pathname}
+          items={menuItems}
+          inverted
+        />
+        <Container text>
+          <Header inverted as="h1">
+            MercuryMesh
+          </Header>
+          <Header inverted as="h2">
+            Connecting autonomous vehicles and driving the future
+          </Header>
+          <Particles className="particles" params={bubbles} />
+        </Container>
+      </Segment>
+
+      {/* About this starter */}
+      <Segment vertical className="stripe">
+        <Grid verticalAlign="middle" className="container">
+          <Grid.Row centered>
+            <Header as="h3">Abstract</Header>
+          </Grid.Row>
+          <Grid.Row centered>
+            <StatisticGroup>
+              <Statistic value="~5,000,000" label="Car accidents per year" />
+              <Statistic value="~30,000" label="Fatalities annually" />
+            </StatisticGroup>
+          </Grid.Row>
+          <Grid.Row>
             <p>
-              Benjamin is a Computer Engineering and Mechanical Engineering
-              student at the University of Utah, with coursework in embedded
-              systems, logic design, robotics, and control. As a research and
-              development intern at APCO Inc, he was the primary developer
-              creating experimental human machine interfaces for industrial use.
-              He is working on initial Local Positioning System chip
-              architecture and design.
+              Our aim to change this statistic. Autonomous Vehicles are a
+              revolutionary technology that will not only change the face of
+              transportation but also save lives and prefent life-changing
+              injuries.
             </p>
-          </Grid.Column>
-          <Grid.Column>
-            <Header icon>
-              <ProfilePicture fileName="dalton.jpg" />
-              <br />
-              Dalton Clift
-            </Header>
             <p>
-              Dalton is an IT specialist working at the University of Utah in
-              the Web Automation Development group. He is also a student,
-              majoring in computer engineering, with a minor in business. He has
-              worked in the computer industry field for most of his life,
-              working as a freelance technician since he was 15 years old, and
-              starting a company at 17. His interests are focused on data center
-              administration, server management relating to big data, and high
-              performance computing. Currently, he is working on the development
-              of our prototype autonomous bots.
+              MercuryMesh enables autonomous vehicles to communicate with each
+              other in real-time. This ability allows vehicles to share
+              information about the road so that each car has a more full view
+              of its environment. Additionally, MercuryMesh enabled vehicles can
+              communicate preemptively about their immediate intentions to allow
+              for cleaner vehicle coordination and reduced traffic on busy
+              streets.
             </p>
-          </Grid.Column>
-          <Grid.Column>
-            <Header icon>
-              <ProfilePicture fileName="sam.jpg" />
-              <br />
-              Sam Hirsch
-            </Header>
             <p>
-              Sam is an undergraduate student pursuing a Bachelor’s Degree in
-              Computer Engineering at the University of Utah where she is also a
-              Research Assistant with the Compiler Technology to Optimize
-              Performance (CTOP) group, and focuses on developing methods to
-              automatically optimize low-level software. She is current working
-              on simulating our P2P communication method with virtual vehicle
-              models to help determine ideal program parameters.
+              Our project leads to safer roads for all and a more coordinated
+              environment. We intend to show that using such communication and
+              coordination reduces the risk of accidents while allowing vehicles
+              to travel close together in highly coordinated patterns and avoid
+              causing traffic jams.
             </p>
-          </Grid.Column>
-        </Grid.Row>
-      </Grid>
-    </Segment>
-  </div>
-);
+          </Grid.Row>
+        </Grid>
+      </Segment>
+      <Segment vertical className="stripe alternate">
+        <Grid stackable className="container">
+          <Grid.Row centered>
+            <Header as="h3">Key Questions</Header>
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column width="8">
+              <Header>What resources do we need for this project?</Header>
+              <p>
+                Quite frankly, a large cost is simply going to be time. This
+                project involves a lot of work in various different areas and
+                will require our whole team to devlote a good bit of personal
+                time to it.
+              </p>
+              <p>
+                We will also need a lot of hardware. For our initial prototype,
+                we plan to contruct 4 autonomous RC cars. Each car will need to
+                have its own camera and LiDAR sensor in order to fascillitate
+                autonomous operation. Additionally, each car needs a Local
+                Positioning System (LPS) chip to keep track of its own location
+                and a DSRC chip for vehicle-to-vehicle communication.
+              </p>
+              <p>
+                It would also be very useful to have access to some
+                professionals who are experienced with self driving algorithms
+                and peer-to-peer networks who may be able to act as mentors.
+              </p>
+              <Header>How long does each method take?</Header>
+              <p>
+                We plan on parallelizing the early work between the team members
+                so that we can accomplish more, faster. The first things to be
+                done will be simulating the autonomous environment, creating a
+                prototype vehicle, and establishing the LPS and DSRC chip
+                programming. We anticipate that each of these processes will
+                take the majority of the semester.
+              </p>
+              <Message>
+                <p>
+                  For more information on our timetable, view the timeline
+                  below.
+                </p>
+              </Message>
+            </Grid.Column>
+            <Grid.Column width="6" floated="right">
+              <Header>How will we deal with problems?</Header>
+              <p>
+                Our group is already very communicative and flexible. We are in
+                frequent communication and have all worked together in the past.
+                We plan to keep each other updated on the progress and potential
+                issues we run into so that we can devise a quick solution to any
+                problems. Should any team member be delayed in their work, we
+                may plan on delaying everyone or redistributing some tasks to
+                that the load is more manageable.
+              </p>
+              <Header>What are the potential risks?</Header>
+              <p>
+                There are several foreseeable risks with this project given its
+                large scope. Early on, we may run into issues with implementing
+                the autonomous algorithm. The core of this project is{" "}
+                <em>not</em>, however, creating autonomous vehicles. As such, we
+                will use pre-developed algorithms liberally for this section to
+                mitigate this risk.
+              </p>
+              <p>
+                We may eventually discover that vehicles travelling in different
+                directions simply cannot maintain a communication channel long
+                enough to be useful. If we find this, our plan is to pivot to
+                focus on transportation fleets. These fleets involve several
+                trucks travelling in the same direction. Our technology could
+                prove more useful in this scenario since these vehicles will
+                stay in-range of each other for longer.
+              </p>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Segment>
+      <Segment vertical className="stripe container">
+        <Grid centered>
+          <Grid.Row>
+            <Header as="h3">Current Job Distribution</Header>
+          </Grid.Row>
+          <Grid.Row>
+            Each job below has a listed owner. The owner is not owner is not the
+            only person working on the job, rather the project is their
+            responsibility. If they need to delegate subtasks, that is up to
+            their own discretion.
+          </Grid.Row>
+          <Grid.Row>
+            <Grid.Column>
+              <Item.Group divided relaxed>
+                {jobs.map((job, index) => (
+                  <Item
+                    key={index}
+                    header={job.title}
+                    image={<Icon size="huge" bordered name={job.icon} />}
+                    description={job.description}
+                    meta={[
+                      <span>Owner: {job.owner}</span>,
+                      <br />,
+                      <span>{job.meta}</span>
+                    ]}
+                  />
+                ))}
+              </Item.Group>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Segment>
+      <Segment vertical className="stripe alternate feature">
+        <Grid
+          centered
+          columns="3"
+          textAlign="center"
+          stackable
+          className="container"
+        >
+          <Grid.Row>
+            <Header as="h3">Team Members</Header>
+          </Grid.Row>
+          <Grid.Row centered>
+            <Grid.Column>
+              <Card>
+                <ProfilePicture fileName="ben.png" />
+                <Card.Content>
+                  <Card.Header>Benjamin Wadsworth</Card.Header>
+                  <Card.Description>
+                    Benjamin is a Computer Engineering and Mechanical
+                    Engineering student at the University of Utah, with
+                    coursework in embedded systems, logic design, robotics, and
+                    control. As a research and development intern at APCO Inc,
+                    he was the primary developer creating experimental human
+                    machine interfaces for industrial use. He is working on
+                    initial Local Positioning System chip architecture and
+                    design.
+                  </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  <a href="https://bcwadsworth.me/" target="_blank">
+                    <Icon name="external" />
+                    Personal Website
+                  </a>
+                </Card.Content>
+              </Card>
+            </Grid.Column>
+            <Grid.Column>
+              <Card>
+                <ProfilePicture fileName="dalton.jpg" />
+                <Card.Content>
+                  <Card.Header>Dalton Clift</Card.Header>
+                  <Card.Description>
+                    Dalton is an IT specialist working at the University of Utah
+                    in the Web Automation Development group. He is also a
+                    student, majoring in computer engineering, with a minor in
+                    business. He has worked in the computer industry field for
+                    most of his life, working as a freelance technician since he
+                    was 15 years old, and starting a company at 17. His
+                    interests are focused on data center administration, server
+                    management relating to big data, and high performance
+                    computing. Currently, he is working on the development of
+                    our prototype autonomous bots.
+                  </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  <a href="https://daltonclift.com/" target="_blank">
+                    <Icon name="external" />
+                    Personal Website
+                  </a>
+                </Card.Content>
+              </Card>
+            </Grid.Column>
+            <Grid.Column>
+              <Card>
+                <ProfilePicture fileName="sam.jpg" />
+                <Card.Content>
+                  <Card.Header>Sam Hirsch</Card.Header>
+                  <Card.Description>
+                    Sam is an undergraduate student pursuing a Bachelor’s Degree
+                    in Computer Engineering at the University of Utah where she
+                    is also a Research Assistant with the Compiler Technology to
+                    Optimize Performance (CTOP) group, and focuses on developing
+                    methods to automatically optimize low-level software. She is
+                    current working on simulating our P2P communication method
+                    with virtual vehicle models to help determine ideal program
+                    parameters.
+                  </Card.Description>
+                </Card.Content>
+                <Card.Content extra>
+                  <a href="https://www.samhirsch.me" target="_blank">
+                    <Icon name="external" />
+                    Personal Website
+                  </a>
+                </Card.Content>
+              </Card>
+            </Grid.Column>
+          </Grid.Row>
+        </Grid>
+      </Segment>
+    </div>
+  );
+};
 
 export default withLayout(IndexPage);
