@@ -1,9 +1,9 @@
 import { addDecorator, configure } from "@storybook/react";
 import { setOptions } from "@storybook/addon-options";
-import { addReadme } from 'storybook-readme';
+import { addReadme } from "storybook-readme";
 
 setOptions({
-  name: 'My website',
+  name: "MercuryMesh",
   downPanelInRight: true
 });
 

@@ -12,7 +12,9 @@ import {
   Icon,
   StatisticGroup,
   Message,
-  Item
+  Item,
+  Progress,
+  Table
 } from "semantic-ui-react";
 import ProfilePicture from "../components/ProfilePicture";
 import jobs from "../../data/sources/jobDistribution";
@@ -224,7 +226,101 @@ const IndexPage = (props: LayoutProps) => {
           </Grid.Row>
         </Grid>
       </Segment>
-      <Segment vertical className="stripe alternate feature">
+      <Segment vertical className="stripe alternate">
+        <Grid centered>
+          <Grid.Row centered>
+            <Header as="h3">Timeline</Header>
+          </Grid.Row>
+          <Grid.Row centered>
+            <Table basic="very" celled collapsing>
+              <Table.Header>
+                <Table.Row>
+                  <Table.HeaderCell>Month</Table.HeaderCell>
+                  <Table.HeaderCell>Tasks</Table.HeaderCell>
+                </Table.Row>
+              </Table.Header>
+              <Table.Body>
+                <Table.Row>
+                  <Table.Cell>March</Table.Cell>
+                  <Table.Cell>Begin Prototyping</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>April</Table.Cell>
+                  <Table.Cell>
+                    Basic Two Way Ranging
+                    <br />
+                    Autonomous Driving Via Existing Sensors
+                    <br />
+                    Communication Exploration
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>May</Table.Cell>
+                  <Table.Cell>
+                    LPS Components Work
+                    <br />
+                    Specify Computer Vision System
+                    <br />
+                    Communication Simulated
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>June</Table.Cell>
+                  <Table.Cell>
+                    Prototype Finalization
+                    <br />
+                    Design and Fabricate Mobile Bases
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>July</Table.Cell>
+                  <Table.Cell>Robotics Integration</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>August</Table.Cell>
+                  <Table.Cell>
+                    Communication Software Built
+                    <br />
+                    Communication used in Autonomous Driving
+                  </Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>September</Table.Cell>
+                  <Table.Cell>Full Integration</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>October</Table.Cell>
+                  <Table.Cell>Use Case / Demonstration Work</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>November</Table.Cell>
+                  <Table.Cell>Finalization</Table.Cell>
+                </Table.Row>
+                <Table.Row>
+                  <Table.Cell>December</Table.Cell>
+                  <Table.Cell>Project Finished</Table.Cell>
+                </Table.Row>
+              </Table.Body>
+            </Table>
+          </Grid.Row>
+        </Grid>
+        <Container className="container">
+          <Item>
+            <Item.Header as="h2">Approximate Progress</Item.Header>
+            <Item.Meta>Updated 2/26/2021</Item.Meta>
+            <Item.Content>
+              <Progress
+                percent={5}
+                indicating
+                progress="percent"
+                active
+                size="large"
+              />
+            </Item.Content>
+          </Item>
+        </Container>
+      </Segment>
+      <Segment vertical className="stripe feature">
         <Grid
           centered
           columns="3"
