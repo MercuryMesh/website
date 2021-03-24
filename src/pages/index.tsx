@@ -229,7 +229,7 @@ const IndexPage = (props: LayoutProps) => {
             </p>
             <Message>
               For more updates on our project, view the prototype tag in the
-              <Link to="/blog/tags/prototype">project blog.</Link>
+              <Link to="/blog/tags/prototype"> project blog.</Link>
             </Message>
           </Grid.Row>
         </Grid>
