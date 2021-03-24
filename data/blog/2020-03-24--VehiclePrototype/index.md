@@ -6,6 +6,7 @@ author: Dalton Clift
 tags:
   - project update
   - prototype
+image: prototyping.jpeg
 draft: false
 ---
 
