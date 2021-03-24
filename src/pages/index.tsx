@@ -195,6 +195,46 @@ const IndexPage = (props: LayoutProps) => {
         </Grid>
       </Segment>
       <Segment vertical className="stripe container">
+        <Grid>
+          <Grid.Row centered>
+            <Header as="h3">Prototyping</Header>
+          </Grid.Row>
+          <Grid.Row>
+            <p>Our project prototype will consist of two main components:</p>
+            <p>
+              First, we have our physical prototypes. We are constructing four
+              open source, RC cars. These cars will provide us extensible access
+              to the software and hardware that drives them. We will attach 2D
+              Lidar sensors to each vehicle to generate proximity maps of the
+              area around the car. Each car will also be equipped with local
+              positioning system (LPS) modules to automatically range and
+              determine physical location.
+              <br />
+              Our prototype will primarily be a demonstration of generating and
+              collecting information from each vehicle as they are in operation.
+              We will show that they can continuously determine their location
+              while generating proxity data.
+            </p>
+            <p>
+              Secondly, we have our simulation prototypes. We are using Unreal
+              Engine and AirSim, a autonomous vehicle library from Microsoft, to
+              create a realistic simualtion of self-driving cars. This
+              simulation will demonstrate a working model of our proposed
+              technology. We will use the pre-built autonomous driving libraries
+              so we aren't concerned with developing new methods of driving
+              vehicles.
+              <br />
+              Our prototype will demonstrate that sharing information between
+              vehicles allows them to operate more reliably and more safely.
+            </p>
+            <Message>
+              For more updates on our project, view the prototype tag in the
+              <Link to="/blog/tags/prototype">project blog.</Link>
+            </Message>
+          </Grid.Row>
+        </Grid>
+      </Segment>
+      <Segment vertical className="stripe container">
         <Grid centered>
           <Grid.Row>
             <Header as="h3">Current Job Distribution</Header>
@@ -310,7 +350,7 @@ const IndexPage = (props: LayoutProps) => {
             <Item.Meta>Updated 2/26/2021</Item.Meta>
             <Item.Content>
               <Progress
-                percent={5}
+                percent={8}
                 indicating
                 progress="percent"
                 active
