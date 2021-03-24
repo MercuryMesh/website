@@ -12,5 +12,12 @@
     "avatar": "avatars/dalton.jpg",
     "twitter": "@daltonclift",
     "github": "@dclift97"
+  },
+  {
+    "id": "Benjamin Wadsworth",
+    "bio": "Network and Embedded Systems developer. Mechanical system specialist.",
+    "avatar": "avatars/ben.png",
+    "twitter": "@fabien0102",
+    "github": "@bcwadsworth"
   }
 ]
