@@ -5,5 +5,11 @@
     "avatar": "avatars/sam.jpg",
     "twitter": "@fabien0102",
     "github": "@Sam3077"
+  },
+  {
+    "id": "Dalton Clift",
+    "bio": "Robotics Specialist",
+    "avatar": "avatars/dalton.jpg",
+    "github": "@dclift97"
   }
 ]
